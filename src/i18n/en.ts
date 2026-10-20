@@ -10,6 +10,7 @@ export const en: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "ui.loadBuild": "Load",
     "ui.deleteBuild": "Delete",
     "ui.newBuild": "New",
+    "ui.renameBuild": "Rename",
 
     // UI - planner
     "ui.remaining": "Remaining perks",
@@ -35,6 +36,8 @@ export const en: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "modal.confirmDelete": "Delete this build? This cannot be undone.",
     "modal.sortAlpha": "Sort by name",
     "modal.sortCreated": "Sort by creation date",
+    "modal.renameBuild": "Rename build",
+    "modal.renameConfirm": "Rename",
 
     // Notices
     "notice.buildSaved": "Build saved: {name}",
@@ -43,6 +46,9 @@ export const en: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "notice.buildSaveFailed": "Failed to save build.",
     "notice.buildLoadFailed": "Failed to load build.",
     "notice.folderMissing": "Builds folder does not exist: {path}",
+    "notice.buildRenamed": "Build renamed: {oldName} → {newName}",
+    "notice.buildRenameFailed": "Failed to rename build.",
+    "notice.buildNameTaken": "A build named \"{name}\" already exists.",
 
     // Settings
     "settings.language.name": "Language",

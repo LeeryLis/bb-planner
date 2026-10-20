@@ -14,6 +14,7 @@ export interface TranslationKeys {
     "ui.loadBuild": string;
     "ui.deleteBuild": string;
     "ui.newBuild": string;
+    "ui.renameBuild": string;
 
     // UI - planner
     "ui.remaining": string;
@@ -39,6 +40,8 @@ export interface TranslationKeys {
     "modal.confirmDelete": string;
     "modal.sortAlpha": string;
     "modal.sortCreated": string;
+    "modal.renameBuild": string;
+    "modal.renameConfirm": string;
 
     // Notices
     "notice.buildSaved": string;
@@ -47,6 +50,9 @@ export interface TranslationKeys {
     "notice.buildSaveFailed": string;
     "notice.buildLoadFailed": string;
     "notice.folderMissing": string;
+    "notice.buildRenamed": string;
+    "notice.buildRenameFailed": string;
+    "notice.buildNameTaken": string;
 
     // Settings
     "settings.language.name": string;

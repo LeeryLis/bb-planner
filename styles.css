@@ -491,3 +491,25 @@
     margin: 0;
     color: var(--text-normal);
 }
+
+/* =========================================================
+   RENAME INPUT (RenameBuildModal)
+========================================================= */
+
+.bb-rename-input {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 8px 0 4px 0;
+    border-radius: 8px;
+    border: 2px solid var(--background-modifier-border);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.bb-rename-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+}

@@ -30,34 +30,45 @@ export class ConfirmModal extends Modal {
     onOpen(): void {
         const { contentEl } = this;
         contentEl.empty();
+
         contentEl.createEl("h2", { text: this.options.title });
         contentEl.createEl("p", { text: this.options.message });
-
-        const buttons = el("div", "bb-modal-buttons");
-
-        const cancel = el(
-            "button",
-            "bb-modal-btn",
-            this.options.cancelText ?? t("modal.cancel")
-        );
-        cancel.onclick = () => this._finish(false);
-        buttons.appendChild(cancel);
-
-        const confirmClass = this.options.confirmClass ?? "is-primary";
-        const ok = el(
-            "button",
-            `bb-modal-btn ${confirmClass}`,
-            this.options.confirmText ?? t("modal.save")
-        );
-        ok.onclick = () => this._finish(true);
-        buttons.appendChild(ok);
-
-        contentEl.appendChild(buttons);
+        contentEl.appendChild(this._renderButtons());
     }
 
     onClose(): void {
         this.contentEl.empty();
         this._finish(false);
+    }
+
+    private _renderButtons(): HTMLElement {
+        const buttons = el("div", "bb-modal-buttons");
+        buttons.appendChild(
+            this._renderButton(
+                this.options.cancelText ?? t("modal.cancel"),
+                "bb-modal-btn",
+                () => this._finish(false)
+            )
+        );
+        buttons.appendChild(
+            this._renderButton(
+                this.options.confirmText ?? t("modal.save"),
+                `bb-modal-btn ${this.options.confirmClass ?? "is-primary"}`,
+                () => this._finish(true)
+            )
+        );
+        return buttons;
+    }
+
+    private _renderButton(
+        text: string,
+        className: string,
+        onClick: () => void
+    ): HTMLButtonElement {
+        const btn = el("button", className, text);
+        btn.type = "button";
+        btn.onclick = onClick;
+        return btn;
     }
 
     private _finish(value: boolean): void {

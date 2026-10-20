@@ -2,6 +2,7 @@ import { App, Notice, TFile, TFolder, normalizePath } from "obsidian";
 import { isPerkId, PerkId } from "../data/perks";
 import type { Build } from "../types";
 import { t } from "../i18n";
+import { BuildAlreadyExistsError, BuildNotFoundError } from "./errors";
 
 const FRONTMATTER_TYPE = "bb-build";
 const FALLBACK_BUILD_NAME = "unnamed";
@@ -54,6 +55,25 @@ export class BuildStore {
     async delete(build: Build): Promise<void> {
         const file = this._resolveBuildFile(build.name);
         if (file) await this.app.vault.delete(file);
+    }
+
+    async rename(oldName: string, newName: string): Promise<void> {
+        const folder = this._resolveFolderOrThrow();
+        const oldFile = this._resolveBuildFile(oldName);
+        if (!oldFile) {
+            throw new BuildNotFoundError(oldName);
+        }
+
+        const safeNewName = this._safeName(newName);
+        const newPath = this._buildFilePath(folder, safeNewName);
+        if (oldFile.path === newPath) return;
+
+        const existing = this.app.vault.getAbstractFileByPath(newPath);
+        if (existing) {
+            throw new BuildAlreadyExistsError(newName);
+        }
+
+        await this.app.fileManager.renameFile(oldFile, newPath);
     }
 
     private _resolveFolder(): string | null {

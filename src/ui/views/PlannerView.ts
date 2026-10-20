@@ -8,6 +8,8 @@ import { ConfirmModal } from "../modals/ConfirmModal";
 import { LoadBuildModal } from "../modals/LoadBuildModal";
 import { el } from "../utils/dom";
 import { t } from "../../i18n";
+import { BuildAlreadyExistsError } from "../../models/errors";
+import { RenameBuildModal } from "../modals/RenameBuildModal";
 
 export const VIEW_TYPE_BB_PLANNER = "bb-planner-view";
 export const DEFAULT_BUILD_NAME = "Untitled";
@@ -62,6 +64,7 @@ export class PlannerView extends ItemView {
             onNew: () => this._resetBuild(),
             onSave: () => void this._saveCurrentBuild(),
             onLoad: () => void this._openLoadModal(),
+            onRename: () => void this._openRenameModal(),
             onDelete: () => void this._openDeleteModal(),
             onTitleChange: (title) => {
                 this.currentBuildName = title;
@@ -151,6 +154,38 @@ export class PlannerView extends ItemView {
             this._refreshAll();
             new Notice(t("notice.buildLoaded", { name: build.name }));
         }).open();
+    }
+
+    private async _openRenameModal(): Promise<void> {
+        const name = this.currentBuildName.trim();
+        if (!name) {
+            new Notice(t("modal.noBuilds"));
+            return;
+        }
+
+        const build = await this.store.getByName(name);
+        if (!build) {
+            new Notice(t("notice.buildLoadFailed"));
+            return;
+        }
+
+        const newName = await RenameBuildModal.ask(this.app, build.name);
+        if (newName === null) return;
+
+        try {
+            await this.store.rename(build.name, newName);
+        } catch (err) {
+            if (err instanceof BuildAlreadyExistsError) {
+                new Notice(t("notice.buildNameTaken", { name: err.name }));
+            } else {
+                new Notice(t("notice.buildRenameFailed"));
+            }
+            return;
+        }
+
+        this.currentBuildName = newName;
+        this.header.setTitle(newName);
+        new Notice(t("notice.buildRenamed", { oldName: build.name, newName }));
     }
 
     private async _openDeleteModal(): Promise<void> {

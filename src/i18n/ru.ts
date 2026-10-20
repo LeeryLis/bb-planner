@@ -13,6 +13,7 @@ export const ru: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "ui.loadBuild": "Загрузить",
     "ui.deleteBuild": "Удалить",
     "ui.newBuild": "Новый",
+    "ui.renameBuild": "Переименовать",
 
     // UI - planner
     "ui.remaining": "Осталось перков",
@@ -38,6 +39,8 @@ export const ru: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "modal.confirmDelete": "Удалить этот билд? Действие необратимо.",
     "modal.sortAlpha": "По имени",
     "modal.sortCreated": "По дате создания",
+    "modal.renameBuild": "Переименовать билд",
+    "modal.renameConfirm": "Переименовать",
 
     // Notices
     "notice.buildSaved": "Билд сохранён: {name}",
@@ -46,6 +49,9 @@ export const ru: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "notice.buildSaveFailed": "Не удалось сохранить билд.",
     "notice.buildLoadFailed": "Не удалось загрузить билд.",
     "notice.folderMissing": "Папка с билдами не существует: {path}",
+    "notice.buildRenamed": "Билд переименован: {oldName} → {newName}",
+    "notice.buildRenameFailed": "Не удалось переименовать билд.",
+    "notice.buildNameTaken": "Билд с именем \"{name}\" уже существует.",
 
     // Settings
     "settings.language.name": "Язык",

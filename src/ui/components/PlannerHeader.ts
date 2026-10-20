@@ -6,6 +6,7 @@ export interface PlannerHeaderCallbacks {
     onNew: () => void;
     onSave: () => void;
     onLoad: () => void;
+    onRename: () => void;
     onDelete: () => void;
     onTitleChange: (title: string) => void;
 }
@@ -51,10 +52,26 @@ export class PlannerHeader {
     private _renderToolbar(): HTMLElement {
         const bar = el("div", "bb-toolbar");
 
-        bar.appendChild(this._toolbarButton("file-plus", t("ui.newBuild"), () => this.callbacks.onNew()));
-        bar.appendChild(this._toolbarButton("save", t("ui.saveBuild"), () => this.callbacks.onSave()));
-        bar.appendChild(this._toolbarButton("folder-open", t("ui.loadBuild"), () => this.callbacks.onLoad()));
-        bar.appendChild(this._toolbarButton("trash-2", t("ui.deleteBuild"), () => this.callbacks.onDelete()));
+        bar.appendChild(this._toolbarButton(
+            "file-plus",
+            t("ui.newBuild"),
+            () => this.callbacks.onNew()));
+        bar.appendChild(this._toolbarButton(
+            "save",
+            t("ui.saveBuild"),
+            () => this.callbacks.onSave()));
+        bar.appendChild(this._toolbarButton(
+            "folder-open",
+            t("ui.loadBuild"),
+            () => this.callbacks.onLoad()));
+        bar.appendChild(this._toolbarButton(
+            "pen",
+            t("ui.renameBuild"),
+            () => this.callbacks.onRename()));
+        bar.appendChild(this._toolbarButton(
+            "trash-2",
+            t("ui.deleteBuild"),
+            () => this.callbacks.onDelete()));
 
         return bar;
     }
