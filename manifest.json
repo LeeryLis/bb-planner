@@ -1,7 +1,7 @@
 {
   "id": "bb-planner",
   "name": "Battle Brothers Planner",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "minAppVersion": "1.5.0",
   "description": "Plan perks for Battle Brothers mercenaries.",
   "author": "LeeryLis",
