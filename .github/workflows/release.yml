@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Verify tag matches manifest version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          MANIFEST_VERSION=$(node -p "require('./manifest.json').version")
+          if [ "$TAG" != "$MANIFEST_VERSION" ]; then
+            echo "Tag '$TAG' does not match manifest version '$MANIFEST_VERSION'"
+            exit 1
+          fi
+
+      - name: Package plugin (with icons)
+        run: cd dist && zip -r ../bb-planner.zip bb-planner
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/bb-planner/main.js
+            dist/bb-planner/manifest.json
+            dist/bb-planner/styles.css
+            bb-planner.zip

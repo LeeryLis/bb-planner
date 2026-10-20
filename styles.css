@@ -1,0 +1,493 @@
+/* =========================================================
+   VIEW
+========================================================= */
+
+.bb-planner-view {
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.bb-planner-card {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px;
+    border-radius: 16px;
+    border: 3px solid var(--background-modifier-border);
+    background: linear-gradient(135deg,
+            var(--background-primary),
+            var(--background-secondary));
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bb-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.bb-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.bb-status {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.bb-status-remaining {
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text-normal);
+    font-variant-numeric: tabular-nums;
+}
+
+.bb-status-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.bb-title-wrap {
+    width: 100%;
+}
+
+.bb-planner-view .bb-title-input {
+    width: 100%;
+    padding: 36px 16px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 2px solid var(--background-modifier-border);
+    background: transparent;
+    color: var(--text-normal);
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-family: inherit;
+    line-height: 1.2;
+    box-sizing: border-box;
+    text-align: center;
+    transition: border-color 0.2s ease;
+}
+
+.bb-planner-view .bb-title-input:hover,
+.bb-planner-view .bb-title-input:focus,
+.bb-planner-view .bb-title-input:active,
+.bb-planner-view .bb-title-input:focus-visible {
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    border-color: transparent;
+    border-bottom-color: var(--interactive-accent);
+}
+
+.bb-planner-view .bb-title-input {
+    caret-color: var(--interactive-accent);
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.bb-toolbar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.bb-toolbar-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 10px;
+    border: 2px solid var(--background-modifier-border);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    cursor: pointer;
+    transition: 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bb-toolbar-btn:hover {
+    border-color: var(--interactive-accent);
+    color: var(--interactive-accent);
+    transform: translateY(-1px);
+}
+
+.bb-toolbar-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+}
+
+.bb-toolbar-btn-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.bb-description-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.bb-description-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    margin-bottom: 8px;
+}
+
+.bb-description-label svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+}
+
+.bb-planner-view .bb-description-input {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 2px solid var(--background-modifier-border);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 0.95rem;
+    font-family: inherit;
+    line-height: 1.4;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.bb-planner-view .bb-description-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+}
+
+.bb-planner-view .bb-description-input::placeholder {
+    color: var(--text-faint);
+}
+
+/* =========================================================
+   PERK GRID
+========================================================= */
+
+.bb-perk-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.bb-perk-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.bb-perk-row.is-locked {
+    opacity: 0.35;
+}
+
+.bb-perk-row-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* =========================================================
+   PERK
+========================================================= */
+
+.bb-perk {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    transition: transform 0.12s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.bb-perk:focus,
+.bb-perk:active,
+.bb-perk:focus-visible {
+    outline: none;
+    box-shadow: none !important;
+}
+
+.bb-perk-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    border-radius: 50%;
+    filter: grayscale(1) brightness(0.9);
+    transition: filter 0.15s ease, transform 0.12s ease;
+}
+
+.bb-perk:hover .bb-perk-icon {
+    filter: grayscale(0) brightness(1.1);
+}
+
+.bb-perk.is-selected .bb-perk-icon {
+    filter: grayscale(0) brightness(1.1);
+    box-shadow:
+        0 0 0 3px var(--interactive-accent),
+        0 0 14px 3px color-mix(in srgb,
+            var(--interactive-accent) 55%,
+            transparent);
+}
+
+.bb-perk.is-locked {
+    cursor: not-allowed;
+}
+
+.bb-perk.is-locked .bb-perk-icon {
+    filter: grayscale(1) brightness(0.5);
+}
+
+/* =========================================================
+   TOOLTIP
+========================================================= */
+
+.bb-tooltip {
+    position: fixed;
+    z-index: 9999;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--background-secondary);
+    border: 2px solid var(--background-modifier-border);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    max-width: 320px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.bb-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@supports (anchor-name: --x) {
+    .bb-tooltip.bb-tooltip--anchored {
+        position-anchor: var(--bb-anchor);
+        position-area: top;
+        position-try-fallbacks: flip-block;
+    }
+}
+
+.bb-tooltip-name {
+    font-size: var(--h3-size, 1.1em);
+    font-weight: var(--h3-weight, 700);
+    line-height: var(--h3-line-height, 1.25);
+    color: var(--h3-color, var(--text-normal));
+    margin-bottom: 6px;
+}
+
+.bb-tooltip-desc {
+    white-space: pre-wrap;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   MODAL (generic)
+========================================================= */
+
+.bb-modal-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.bb-modal-btn {
+    padding: 6px 16px;
+    border-radius: 10px;
+    border: 2px solid var(--background-modifier-border);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.bb-modal-btn:hover {
+    border-color: var(--interactive-accent);
+}
+
+.bb-modal-btn.is-primary {
+    border-color: var(--interactive-accent);
+    background: color-mix(in srgb,
+            var(--interactive-accent) 20%,
+            var(--background-primary));
+    color: var(--text-on-accent);
+}
+
+.bb-modal-btn.is-danger {
+    border-color: var(--color-red);
+    color: var(--color-red);
+}
+
+.bb-build-sort {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    margin: 8px 0 4px 0;
+}
+
+.bb-sort-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 8px;
+    border: 2px solid var(--background-modifier-border);
+    background: var(--background-primary);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bb-sort-btn:hover {
+    color: var(--text-normal);
+    border-color: var(--interactive-accent);
+}
+
+.bb-sort-btn.is-active {
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
+    background: color-mix(in srgb,
+            var(--interactive-accent) 30%,
+            var(--background-primary));
+}
+
+.bb-sort-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.bb-sort-btn-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* =========================================================
+   BUILD LIST (LoadBuildModal)
+========================================================= */
+
+.bb-build-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.bb-build-list .bb-build-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid var(--background-modifier-border);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    text-align: left;
+    cursor: pointer;
+    transition: 0.15s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+    height: auto;
+    min-height: 0;
+}
+
+.bb-build-list .bb-build-list-item:hover {
+    border-color: var(--interactive-accent);
+    background: color-mix(in srgb,
+            var(--interactive-accent) 10%,
+            transparent);
+}
+
+.bb-build-list .bb-build-list-name {
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    padding: 0;
+    margin: 0;
+    color: var(--text-normal);
+}
