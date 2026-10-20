@@ -475,6 +475,7 @@
     white-space: normal;
     overflow: visible;
     align-items: stretch;
+    flex-shrink: 0;
 }
 
 .bb-build-list .bb-build-list-item:hover {
