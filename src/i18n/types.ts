@@ -5,29 +5,24 @@ export type PerkTranslationKeys =
     | `perk.${PerkId}.desc`;
 
 export interface TranslationKeys {
-    // Plugin
     "plugin.ribbon": string;
     "plugin.openCommand": string;
 
-    // UI - toolbar
     "ui.saveBuild": string;
     "ui.loadBuild": string;
     "ui.deleteBuild": string;
     "ui.newBuild": string;
     "ui.renameBuild": string;
 
-    // UI - planner
     "ui.remaining": string;
     "ui.requiredLevel": string;
     "ui.selectedPerks": string;
     "ui.tier": string;
     "ui.noPerksSelected": string;
 
-    // UI - description
     "ui.description": string;
     "ui.descriptionPlaceholder": string;
 
-    // UI - modal
     "modal.buildName": string;
     "modal.save": string;
     "modal.cancel": string;
@@ -43,7 +38,6 @@ export interface TranslationKeys {
     "modal.renameBuild": string;
     "modal.renameConfirm": string;
 
-    // Notices
     "notice.buildSaved": string;
     "notice.buildLoaded": string;
     "notice.buildDeleted": string;
@@ -54,10 +48,11 @@ export interface TranslationKeys {
     "notice.buildRenameFailed": string;
     "notice.buildNameTaken": string;
 
-    // Settings
     "settings.language.name": string;
     "settings.language.desc": string;
     "settings.language.auto": string;
     "settings.buildsFolder.name": string;
     "settings.buildsFolder.desc": string;
+    "settings.buildsIndexName.name": string;
+    "settings.buildsIndexName.desc": string;
 }

@@ -1,29 +1,24 @@
 import type { PerkTranslationKeys, TranslationKeys } from "./types";
 
 export const en: TranslationKeys & Record<PerkTranslationKeys, string> = {
-    // Plugin
     "plugin.ribbon": "BB Planner",
     "plugin.openCommand": "Open Battle Brothers Planner",
 
-    // UI - toolbar
     "ui.saveBuild": "Save",
     "ui.loadBuild": "Load",
     "ui.deleteBuild": "Delete",
     "ui.newBuild": "New",
     "ui.renameBuild": "Rename",
 
-    // UI - planner
     "ui.remaining": "Remaining perks",
     "ui.requiredLevel": "Required level",
     "ui.selectedPerks": "Selected perks",
     "ui.tier": "Tier",
     "ui.noPerksSelected": "No perks selected",
 
-    // UI - description
     "ui.description": "Description",
     "ui.descriptionPlaceholder": "Optional notes about this build...",
 
-    // UI - modal
     "modal.buildName": "Build name",
     "modal.save": "Save",
     "modal.cancel": "Cancel",
@@ -39,7 +34,6 @@ export const en: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "modal.renameBuild": "Rename build",
     "modal.renameConfirm": "Rename",
 
-    // Notices
     "notice.buildSaved": "Build saved: {name}",
     "notice.buildLoaded": "Build loaded: {name}",
     "notice.buildDeleted": "Build deleted: {name}",
@@ -50,14 +44,14 @@ export const en: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "notice.buildRenameFailed": "Failed to rename build.",
     "notice.buildNameTaken": "A build named \"{name}\" already exists.",
 
-    // Settings
     "settings.language.name": "Language",
     "settings.language.desc": "Interface language for the planner.",
     "settings.language.auto": "Auto (follow Obsidian)",
     "settings.buildsFolder.name": "Builds folder",
     "settings.buildsFolder.desc": "Folder where build notes are stored.",
+    "settings.buildsIndexName.name": "Builds index note",
+    "settings.buildsIndexName.desc": "Note in the builds folder that links all builds together. Created automatically. Leave empty for 'Builds'.",
 
-    // Perks - names
     "perk.fast-adaptation.name": "Fast Adaptation",
     "perk.crippling-strikes.name": "Crippling Strikes",
     "perk.colossus.name": "Colossus",
@@ -109,7 +103,6 @@ export const en: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "perk.killing-frenzy.name": "Killing Frenzy",
     "perk.indomitable.name": "Indomitable",
 
-    // Perks - descriptions
     "perk.fast-adaptation.desc": "Adapt to your opponent's moves! Gain an additional stacking +10% chance to hit with each attack that misses an opponent. Bonus is reset upon landing a hit.",
     "perk.crippling-strikes.desc": "Cripple your enemies! Lowers the threshold to inflict injuries by 33% for both melee and ranged attacks.",
     "perk.colossus.desc": "Bring it on! Hitpoints are increased by 25%, which also reduces the chance to sustain debilitating injuries when being hit.",

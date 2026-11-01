@@ -13,7 +13,11 @@ export default class BBPlannerPlugin extends Plugin {
         await this.loadSettings();
         setLocale(this.settings.language);
 
-        this.store = new BuildStore(this.app, () => this.settings.buildsFolder);
+        this.store = new BuildStore(
+            this.app,
+            () => this.settings.buildsFolder,
+            () => this.settings.buildsIndexName
+        );
 
         this.registerView(
             VIEW_TYPE_BB_PLANNER,

@@ -1,7 +1,9 @@
 import { App, PluginSettingTab, Setting } from "obsidian";
 import type BBPlannerPlugin from "../../main";
 import { setLocale, t } from "../../i18n";
-import { FolderSuggest } from "./FolderSuggest";
+import { DEFAULT_SETTINGS } from "../../types";
+import { FolderSuggest } from "../utils/suggest/FolderSuggest";
+import { NoteSuggest } from "../utils/suggest/NoteSuggest";
 
 export class BBPlannerSettingTab extends PluginSettingTab {
     plugin: BBPlannerPlugin;
@@ -37,7 +39,7 @@ export class BBPlannerSettingTab extends PluginSettingTab {
             .setDesc(t("settings.buildsFolder.desc"))
             .addText((text) => {
                 text
-                    .setPlaceholder("BB/Builds")
+                    .setPlaceholder(DEFAULT_SETTINGS.buildsFolder)
                     .setValue(this.plugin.settings.buildsFolder)
                     .onChange(async (value) => {
                         this.plugin.settings.buildsFolder = value;
@@ -45,6 +47,22 @@ export class BBPlannerSettingTab extends PluginSettingTab {
                     });
 
                 new FolderSuggest(this.app, text.inputEl);
+            });
+
+        new Setting(containerEl)
+            .setName(t("settings.buildsIndexName.name"))
+            .setDesc(t("settings.buildsIndexName.desc"))
+            .addText((text) => {
+                text
+                    .setPlaceholder(DEFAULT_SETTINGS.buildsIndexName)
+                    .setValue(this.plugin.settings.buildsIndexName)
+                    .onChange(async (value) => {
+                        this.plugin.settings.buildsIndexName =
+                            value.trim() || DEFAULT_SETTINGS.buildsIndexName;
+                        await this.plugin.saveSettings();
+                    });
+
+                new NoteSuggest(this.app, text.inputEl);
             });
     }
 }

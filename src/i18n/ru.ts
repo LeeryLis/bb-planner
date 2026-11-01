@@ -4,29 +4,24 @@ import { en } from "./en";
 export const ru: TranslationKeys & Record<PerkTranslationKeys, string> = {
     ...en,
 
-    // Plugin
     "plugin.ribbon": "BB Planner",
     "plugin.openCommand": "Открыть Battle Brothers Planner",
 
-    // UI - toolbar
     "ui.saveBuild": "Сохранить",
     "ui.loadBuild": "Загрузить",
     "ui.deleteBuild": "Удалить",
     "ui.newBuild": "Новый",
     "ui.renameBuild": "Переименовать",
 
-    // UI - planner
     "ui.remaining": "Осталось перков",
     "ui.requiredLevel": "Требуемый уровень",
     "ui.selectedPerks": "Выбранные перки",
     "ui.tier": "Тир",
     "ui.noPerksSelected": "Перки не выбраны",
 
-    // UI - description
     "ui.description": "Описание",
     "ui.descriptionPlaceholder": "Дополнительные заметки о билде...",
 
-    // UI - modal
     "modal.buildName": "Название билда",
     "modal.save": "Сохранить",
     "modal.cancel": "Отмена",
@@ -42,7 +37,6 @@ export const ru: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "modal.renameBuild": "Переименовать билд",
     "modal.renameConfirm": "Переименовать",
 
-    // Notices
     "notice.buildSaved": "Билд сохранён: {name}",
     "notice.buildLoaded": "Билд загружен: {name}",
     "notice.buildDeleted": "Билд удалён: {name}",
@@ -53,14 +47,14 @@ export const ru: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "notice.buildRenameFailed": "Не удалось переименовать билд.",
     "notice.buildNameTaken": "Билд с именем \"{name}\" уже существует.",
 
-    // Settings
     "settings.language.name": "Язык",
     "settings.language.desc": "Язык интерфейса планировщика.",
     "settings.language.auto": "Автоматически (как в Obsidian)",
     "settings.buildsFolder.name": "Папка с билдами",
     "settings.buildsFolder.desc": "Папка, где хранятся заметки с билдами.",
+    "settings.buildsIndexName.name": "Заметка-индекс билдов",
+    "settings.buildsIndexName.desc": "Заметка в папке с билдами, связывающая все билды вместе. Создаётся автоматически. Оставьте пустым для «Builds».",
 
-    // Perks - names
     "perk.fast-adaptation.name": "Быстрая адаптация",
     "perk.crippling-strikes.name": "Калечащие удары",
     "perk.colossus.name": "Колосс",
@@ -112,7 +106,6 @@ export const ru: TranslationKeys & Record<PerkTranslationKeys, string> = {
     "perk.killing-frenzy.name": "Жажда убийства",
     "perk.indomitable.name": "Несгибаемый",
 
-    // Perks - descriptions
     "perk.fast-adaptation.desc": "Приспосабливайтесь к движениям противника! Каждая атака, промахнувшаяся по противнику, даёт накапливающийся бонус +10% к шансу попадания. Бонус сбрасывается при попадании.",
     "perk.crippling-strikes.desc": "Калечьте врагов! Снижает порог нанесения травм на 33% как для ближних, так и для дальних атак.",
     "perk.colossus.desc": "Ну давай, нападай! Здоровье увеличено на 25%, что также снижает шанс получить тяжёлые травмы при попадании.",
